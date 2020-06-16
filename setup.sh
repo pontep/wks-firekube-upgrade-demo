@@ -51,7 +51,7 @@ else
 fi
 
 git_remote="$(git config --get "branch.$(git_current_branch).remote" || true)" # fallback to "", user may override
-git_deploy_key="cluster-key"
+git_deploy_key=""
 download="yes"
 download_force="no"
 
@@ -172,8 +172,8 @@ apply_args=(
   "--git-branch=$(git_current_branch)"
 )
 [ "${git_deploy_key}" ] && apply_args+=("${git_deploy_key}")
-wksctl apply "${apply_args[@]}"
-wksctl kubeconfig
+echo "wksctl apply "${apply_args[@]}""
+echo" wksctl kubeconfig"
 
 echo "Waiting for a networking pod on master ..."
 kubectl wait --timeout=120s --for=condition=Ready -n weavek8sops pod -l name=weave-net
