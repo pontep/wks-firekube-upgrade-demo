@@ -186,4 +186,5 @@ apply_args=(
 )
 [ "${git_deploy_key}" ] && apply_args+=("${git_deploy_key}")
 wksctl -v apply "${apply_args[@]}"
-wksctl kubeconfig
+echo "use this command and overide private key: wksctl -v apply "${apply_args[@]}""
+echo "and this wksctl kubeconfig"
