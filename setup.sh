@@ -51,7 +51,7 @@ else
 fi
 
 git_remote="$(git config --get "branch.$(git_current_branch).remote" || true)" # fallback to "", user may override
-git_deploy_key=""
+git_deploy_key="cluster-key"
 download="yes"
 download_force="no"
 
